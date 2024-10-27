@@ -1,0 +1,44 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.2.3
+
+jobs:
+  test:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - checkout:
+          path: UBCRocketGroundStation
+      - run:
+          name: "Run ci.sh"
+          command: source ci.sh
+          path: UBCRocketGroundStation
+      - store_test_results:
+          path: UBCRocketGroundStation/test_reports
+      - store_artifacts:
+          path: UBCRocketGroundStation/test_reports
+      # - codecov/upload:
+      #     token: $CODECOV_TOKEN
+      #     file: 'UBCRocketGroundStation/coverage.xml'
+      - run:
+          name: Send unit tests to codecov
+          command: |
+            cd UBCRocketGroundStation
+                  curl -Os https://uploader.codecov.io/latest/linux/codecov
+                  chmod +x codecov
+                  ./codecov -Z -f test_reports/unit-test-coverage.xml -F unit
+            cd ..
+      - run:
+          name: Send integ tests to codecov
+          command: |
+            cd UBCRocketGroundStation
+                  curl -Os https://uploader.codecov.io/latest/linux/codecov
+                  chmod +x codecov
+                  ./codecov -Z -f test_reports/integ-test-coverage.xml -F integration
+            cd ..
+
+workflows:
+  main:
+    jobs:
+      - test
