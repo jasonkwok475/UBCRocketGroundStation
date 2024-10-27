@@ -89,16 +89,19 @@ def parent_dir(path):
         return path
 
 def setup_step():
+    #!HERE
+    _run(GLOBAL_PYTHON, ['-m', 'pip', 'install', '--upgrade', 'uv'])
+
     print("Creating venv...")
 
-    _run(GLOBAL_PYTHON, ['-m', 'venv', 'venv'])
+    _run(GLOBAL_PYTHON, ['-m', 'uv', 'venv'])
 
     print("Printing some venv debug info...")
     _run(VENV_PYTHON, ['--version'])
     _run(VENV_PYTHON, ['-c', '"import sys; print(sys.executable)"'])
 
     print("Installing requirements in venv...")
-    _run(VENV_PIP, ['install', '-r', 'requirements.txt'])
+    _run(VENV_PIP, ['-m', 'uv', 'sync'])
 
     print("Downloading external requirements...")
     for url, file in EXTERNAL_DEPENDENCIES.items():
