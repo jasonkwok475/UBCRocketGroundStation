@@ -101,7 +101,7 @@ def setup_step():
     _run(VENV_PYTHON, ['-c', '"import sys; print(sys.executable)"'])
 
     print("Installing requirements in venv...")
-    _run(VENV_PIP, ['-m', 'uv', 'sync'])
+    _run(GLOBAL_PYTHON, ['-m', 'uv', 'sync'])
 
     print("Downloading external requirements...")
     for url, file in EXTERNAL_DEPENDENCIES.items():
