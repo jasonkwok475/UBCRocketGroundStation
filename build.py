@@ -33,9 +33,9 @@ LOCAL = os.path.dirname(os.path.abspath(__file__))
 GLOBAL_PYTHON = sys.executable
 
 VENV_BIN_DIR = os.path.join(LOCAL, {
-    'linux': 'venv/bin/',
-    'win32': 'venv/Scripts/',
-    'darwin': 'venv/bin/'
+    'linux': '.venv/bin/',
+    'win32': '.venv/Scripts/',
+    'darwin': '.venv/bin/'
 }[sys.platform])
 
 EXECUTABLE_FILE_EXTENSION = {
