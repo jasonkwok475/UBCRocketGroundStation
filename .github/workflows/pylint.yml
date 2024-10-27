@@ -17,6 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade uv
+        python -m pip install --upgrade pylint
         uv sync
     - name: Get changed files
       id: changed-files
@@ -27,6 +28,6 @@ jobs:
           if [[ -f $file && $file == *.py ]]
             then
               echo $file
-              uv run --with pylint $file
+              pylint $file
             fi
         done
