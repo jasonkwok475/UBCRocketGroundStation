@@ -17,7 +17,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade uv
-        python -m pip install --upgrade pylint
         uv sync
     - name: Get changed files
       id: changed-files
