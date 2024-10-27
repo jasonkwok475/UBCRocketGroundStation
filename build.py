@@ -174,7 +174,7 @@ def main(cmd_args):
 
 
 if __name__ == '__main__':
-    if not (sys.version_info[0] == 3 and sys.version_info[1] == 7):
+    if not (sys.version_info[0] == 3 and sys.version_info[1] == 12):
         raise Exception("Python version is not 3.7")
 
     if _is_venv():
