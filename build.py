@@ -18,8 +18,9 @@ DATA_FILES = [
 ]
 
 HIDDEN_IMPORTS = [
+    'tkinter',
+    'tkinter.filedialog',
     'main_window.mplwidget',
-    'tkinter'
 ]
 
 SPLASH_IMAGE = 'qt_files/logo.png'
