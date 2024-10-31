@@ -22,7 +22,6 @@ dependencies = [
     "sortedcontainers==2.4.0",
     "pyqt5-qt5==5.15.2",
     "digi-xbee",
-    "tk>=0.1.0",
 ]
 
 [tool.uv.sources]
