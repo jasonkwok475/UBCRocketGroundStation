@@ -47,7 +47,7 @@ EXECUTABLE_FILE_EXTENSION = {
 }[sys.platform]
 
 VENV_PYTHON = os.path.join(VENV_BIN_DIR, {
-    'linux': 'python3',
+    'linux': 'python3.12',
     'win32': 'python',
     'darwin': 'python3'
 }[sys.platform] + EXECUTABLE_FILE_EXTENSION)
