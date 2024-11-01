@@ -47,7 +47,7 @@ EXECUTABLE_FILE_EXTENSION = {
 }[sys.platform]
 
 VENV_PYTHON = os.path.join(VENV_BIN_DIR, {
-    'linux': 'python3.12',
+    'linux': 'python3',
     'win32': 'python',
     'darwin': 'python3'
 }[sys.platform] + EXECUTABLE_FILE_EXTENSION)
@@ -124,7 +124,7 @@ def build_step():
     hidden_imports = [f"--hidden-import={i}" for i in HIDDEN_IMPORTS]
     data_files = [f"--add-data={i}{PYINSTALLER_SEPARATOR}{parent_dir(i)}" for i in DATA_FILES]
     splash = "" #f"--splash {SPLASH_IMAGE}" if sys.platform != 'darwin' else ""  # Splash not currently supported on MacOS
-    _run(VENV_PYINSTALLER, ['--onefile',
+    _run(VENV_PYINSTALLER, ['--onedir',
                             ENTRY_POINT,
                             '--console',
                             '--name', EXECUTABLE_NAME,
