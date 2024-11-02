@@ -32,6 +32,8 @@ Environment specific paths and constants
 '''
 LOCAL = os.path.dirname(os.path.abspath(__file__))
 
+os.environ["QT_DEBUG_PLUGINS"] = 1
+
 GLOBAL_PYTHON = sys.executable
 
 VENV_BIN_DIR = os.path.join(LOCAL, {
