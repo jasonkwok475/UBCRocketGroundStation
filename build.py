@@ -95,8 +95,6 @@ def parent_dir(path):
 def setup_step():
     #!HERE
     _run(GLOBAL_PYTHON, ['-m', 'pip', 'install', '--upgrade', 'uv'])
-    _run(GLOBAL_PYTHON, ['-m', 'pip', 'install', '--upgrade', 'pylint'])
-
 
     print("Creating venv...")
 
