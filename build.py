@@ -50,8 +50,6 @@ VENV_PYTHON = os.path.join(VENV_BIN_DIR, {
     'darwin': 'python3'
 }[sys.platform] + EXECUTABLE_FILE_EXTENSION)
 
-VENV_PIP = os.path.join(VENV_BIN_DIR, 'pip' + EXECUTABLE_FILE_EXTENSION)
-
 VENV_PYINSTALLER = os.path.join(VENV_BIN_DIR, 'pyinstaller' + EXECUTABLE_FILE_EXTENSION)
 
 BUILD_OUTPUT = os.path.join(LOCAL, 'dist/', EXECUTABLE_NAME + EXECUTABLE_FILE_EXTENSION)
