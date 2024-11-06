@@ -27,7 +27,7 @@ jobs:
             cd UBCRocketGroundStation
                   curl -Os https://uploader.codecov.io/latest/linux/codecov
                   chmod +x codecov
-                  ./codecov -Z -f test_reports/unit-test-coverage.xml -F unit
+                  ./codecov -Z -f test_coverage/unit-test-coverage.xml -F unit
             cd ..
       - run:
           name: Send integ tests to codecov
@@ -35,7 +35,7 @@ jobs:
             cd UBCRocketGroundStation 
                   curl -Os https://uploader.codecov.io/latest/linux/codecov
                   chmod +x codecov
-                  ./codecov -Z -f test_reports/integ-test-coverage.xml -F integration
+                  ./codecov -Z -f test_coverage/integ-test-coverage.xml -F integration
             cd ..
 
 workflows:
