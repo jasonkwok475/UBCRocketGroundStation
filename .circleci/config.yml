@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Send integ tests to codecov
           command: |
-            cd UBCRocketGroundStation 
+            cd UBCRocketGroundStation
                   curl -Os https://uploader.codecov.io/latest/linux/codecov
                   chmod +x codecov
                   ./codecov -Z -f test_reports/integ-test-coverage.xml -F integration
