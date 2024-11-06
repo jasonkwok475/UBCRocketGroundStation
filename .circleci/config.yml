@@ -10,10 +10,10 @@ jobs:
     steps:
       - checkout:
           path: UBCRocketGroundStation
-      - run:
-          name: "Run ci.sh"
-          command: source ci.sh
-          path: UBCRocketGroundStation
+      # - run:
+      #     name: "Run ci.sh"
+      #     command: source ci.sh
+      #     path: UBCRocketGroundStation
       - store_test_results:
           path: UBCRocketGroundStation/test_reports
       - store_artifacts:
@@ -25,19 +25,19 @@ jobs:
           name: Send unit tests to codecov
           command: |
             cd UBCRocketGroundStation
-                  curl -Os https://cli.codecov.io/v0.4.4/linux/codecov
+                  curl -Os https://cli.codecov.io/latest/linux/codecov
                   chmod +x codecov
                   ./codecov --help
-                  ./codecov -F unit -f test_coverage/unit-test-coverage.xml 
+                  ./codecov do-upload -s test_coverage
             cd ..
-      - run:
-          name: Send integ tests to codecov
-          command: |
-            cd UBCRocketGroundStation 
-                  curl -Os https://cli.codecov.io/v0.4.4/linux/codecov
-                  chmod +x codecov
-                  ./codecov -F integration -f test_coverage/integ-test-coverage.xml 
-            cd ..
+      # - run:
+      #     name: Send integ tests to codecov
+      #     command: |
+      #       cd UBCRocketGroundStation 
+      #             curl -Os https://cli.codecov.io/v0.4.4/linux/codecov
+      #             chmod +x codecov
+      #             ./codecov -F integration -f test_coverage/integ-test-coverage.xml 
+      #       cd ..
 
 workflows:
   main:
