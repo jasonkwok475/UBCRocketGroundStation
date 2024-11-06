@@ -18,8 +18,6 @@ DATA_FILES = [
 ]
 
 HIDDEN_IMPORTS = [
-    'tkinter',
-    'tkinter.filedialog',
     'main_window.mplwidget',
 ]
 
@@ -31,8 +29,6 @@ ICON_FILE = 'qt_files/icon.ico'
 Environment specific paths and constants
 '''
 LOCAL = os.path.dirname(os.path.abspath(__file__))
-
-os.environ["QT_DEBUG_PLUGINS"] = "1"
 
 GLOBAL_PYTHON = sys.executable
 
@@ -125,7 +121,7 @@ def build_step():
     print("Running PyInstaller...")
     hidden_imports = [f"--hidden-import={i}" for i in HIDDEN_IMPORTS]
     data_files = [f"--add-data={i}{PYINSTALLER_SEPARATOR}{parent_dir(i)}" for i in DATA_FILES]
-    splash = "" #f"--splash {SPLASH_IMAGE}" if sys.platform != 'darwin' else ""  # Splash not currently supported on MacOS
+    splash = f"--splash {SPLASH_IMAGE}" if sys.platform != 'darwin' else ""  # Splash not currently supported on MacOS
     _run(VENV_PYINSTALLER, ['--onefile',
                             ENTRY_POINT,
                             '--console',
