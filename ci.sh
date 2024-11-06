@@ -9,6 +9,8 @@ set -o verbose
 
 sudo apt-get update -y
 
+sudo apt install libxcb-cursor0
+
 # Needed for unit testing with qt https://github.com/pytest-dev/pytest-qt/issues/293
 sudo apt-get install -y xvfb libxkbcommon-x11-0
 sudo Xvfb :1 -screen 0 1024x768x24 </dev/null &

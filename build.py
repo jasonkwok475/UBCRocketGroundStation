@@ -8,7 +8,7 @@ from collections import OrderedDict
 '''
 PyInstaller settings
 '''
-EXECUTABLE_NAME = 'UBCRGS/start.py'
+EXECUTABLE_NAME = 'UBCRGS'
 
 ENTRY_POINT = 'start.py'
 
@@ -126,7 +126,7 @@ def build_step():
     hidden_imports = [f"--hidden-import={i}" for i in HIDDEN_IMPORTS]
     data_files = [f"--add-data={i}{PYINSTALLER_SEPARATOR}{parent_dir(i)}" for i in DATA_FILES]
     splash = "" #f"--splash {SPLASH_IMAGE}" if sys.platform != 'darwin' else ""  # Splash not currently supported on MacOS
-    _run(VENV_PYINSTALLER, ['--onedir',
+    _run(VENV_PYINSTALLER, ['--onefile',
                             ENTRY_POINT,
                             '--console',
                             '--name', EXECUTABLE_NAME,
