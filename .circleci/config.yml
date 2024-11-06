@@ -1,7 +1,7 @@
 version: 2.1
 
-orbs:
-  codecov: codecov/codecov@1.2.3
+# orbs:
+#   codecov: codecov/codecov@1.2.3
 
 jobs:
   test:
@@ -27,7 +27,7 @@ jobs:
             cd UBCRocketGroundStation
                   curl -Os https://cli.codecov.io/latest/linux/codecov
                   chmod +x codecov
-                  ./codecov -f test_coverage/unit-test-coverage.xml -F unit
+                  ./codecov -F unit -f test_coverage/unit-test-coverage.xml 
             cd ..
       - run:
           name: Send integ tests to codecov
@@ -35,7 +35,7 @@ jobs:
             cd UBCRocketGroundStation 
                   curl -Os https://cli.codecov.io/latest/linux/codecov
                   chmod +x codecov
-                  ./codecov -f test_coverage/integ-test-coverage.xml -F integration
+                  ./codecov -F integration -f test_coverage/integ-test-coverage.xml 
             cd ..
 
 workflows:
