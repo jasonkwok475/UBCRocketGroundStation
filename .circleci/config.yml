@@ -18,25 +18,25 @@ jobs:
           path: UBCRocketGroundStation/test_reports
       - store_artifacts:
           path: UBCRocketGroundStation/test_reports
-      - codecov/upload:
-          #token: $CODECOV_TOKEN
-          files: 'UBCRocketGroundStation/test_coverage/unit-test-coverage.xml, UBCRocketGroundStation/test_coverage/integ-test-coverage.xml'
-      # - run:
-      #     name: Send unit tests to codecov
-      #     command: |
-      #       cd UBCRocketGroundStation
-      #             curl -Os https://cli.codecov.io/latest/linux/codecov
-      #             chmod +x codecov
-      #             ./codecov -Z -f test_coverage/unit-test-coverage.xml -F unit
-      #       cd ..
-      # - run:
-      #     name: Send integ tests to codecov
-      #     command: |
-      #       cd UBCRocketGroundStation 
-      #             curl -Os https://cli.codecov.io/latest/linux/codecov
-      #             chmod +x codecov
-      #             ./codecov -Z -f test_coverage/integ-test-coverage.xml -F integration
-      #       cd ..
+      # - codecov/upload:
+      #     #token: $CODECOV_TOKEN
+      #     files: 'UBCRocketGroundStation/test_coverage/unit-test-coverage.xml, UBCRocketGroundStation/test_coverage/integ-test-coverage.xml'
+      - run:
+          name: Send unit tests to codecov
+          command: |
+            cd UBCRocketGroundStation
+                  curl -Os https://cli.codecov.io/latest/linux/codecov
+                  chmod +x codecov
+                  ./codecov -f test_coverage/unit-test-coverage.xml -F unit
+            cd ..
+      - run:
+          name: Send integ tests to codecov
+          command: |
+            cd UBCRocketGroundStation 
+                  curl -Os https://cli.codecov.io/latest/linux/codecov
+                  chmod +x codecov
+                  ./codecov -f test_coverage/integ-test-coverage.xml -F integration
+            cd ..
 
 workflows:
   main:
