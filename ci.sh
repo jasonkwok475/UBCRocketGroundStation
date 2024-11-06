@@ -20,8 +20,8 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
 # Start setting up Python for GS
 sudo apt-get install -y tk-dev
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.9
-pyenv global 3.7.9
+env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install -s 3.12
+pyenv global 3.12
 python --version
 python -m pip install --upgrade pip setuptools wheel
 
@@ -47,18 +47,18 @@ cd ../../..
 cd UBCRocketGroundStation
 
 # Unit tests & integration tests
-source venv/bin/activate
+source .venv/bin/activate
 mkdir test_reports
 
 # Unit
-coverage run --omit 'venv/*' -m pytest --durations=0 --junitxml=test_reports/unit-test-results.xml --ignore=tests/integration_tests tests
-coverage report --omit 'venv/*'
+coverage run --omit '.venv/*' -m pytest --durations=0 --junitxml=test_reports/unit-test-results.xml --ignore=tests/integration_tests tests
+coverage report --omit '.venv/*'
 coverage xml -o test_reports/unit-test-coverage.xml
 head test_reports/unit-test-coverage.xml
 
 # Integration
-coverage run --omit 'venv/*' -m pytest --durations=0 --junitxml=test_reports/integ-test-results.xml tests/integration_tests
-coverage report --omit 'venv/*'
+coverage run --omit '.venv/*' -m pytest --durations=0 --junitxml=test_reports/integ-test-results.xml tests/integration_tests
+coverage report --omit '.venv/*'
 coverage xml -o test_reports/integ-test-coverage.xml
 head test_reports/integ-test-coverage.xml
 
