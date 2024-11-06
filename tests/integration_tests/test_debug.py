@@ -35,6 +35,7 @@ def single_connection_bnb(test_app):
 
 
 def test_arm_signal(qtbot, single_connection_bnb):
+    print(1)
     app = single_connection_bnb
     snapshot = get_event_stats_snapshot()
 
