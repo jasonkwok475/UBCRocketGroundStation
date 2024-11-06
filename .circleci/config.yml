@@ -19,7 +19,7 @@ jobs:
       - store_artifacts:
           path: UBCRocketGroundStation/test_reports
       - codecov/upload:
-          token: $CODECOV_TOKEN
+          #token: $CODECOV_TOKEN
           files: 'UBCRocketGroundStation/test_coverage/unit-test-coverage.xml', 'UBCRocketGroundStation/test_coverage/integ-test-coverage.xml'
       # - run:
       #     name: Send unit tests to codecov
