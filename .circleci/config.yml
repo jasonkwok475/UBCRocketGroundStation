@@ -27,6 +27,7 @@ jobs:
             cd UBCRocketGroundStation
                   curl -Os https://cli.codecov.io/v0.4.4/linux/codecov
                   chmod +x codecov
+                  ./codecov --help
                   ./codecov -F unit -f test_coverage/unit-test-coverage.xml 
             cd ..
       - run:
