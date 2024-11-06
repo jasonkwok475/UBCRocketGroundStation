@@ -10,10 +10,10 @@ jobs:
     steps:
       - checkout:
           path: UBCRocketGroundStation
-      # - run:
-      #     name: "Run ci.sh"
-      #     command: source ci.sh
-      #     path: UBCRocketGroundStation
+      - run:
+          name: "Run ci.sh"
+          command: source ci.sh
+          path: UBCRocketGroundStation
       - store_test_results:
           path: UBCRocketGroundStation/test_reports
       - store_artifacts:
