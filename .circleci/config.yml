@@ -25,7 +25,7 @@ jobs:
           name: Send unit tests to codecov
           command: |
             cd UBCRocketGroundStation
-                  curl -Os https://cli.codecov.io/latest/linux/codecov
+                  curl -Os https://cli.codecov.io/v0.4.4/linux/codecov
                   chmod +x codecov
                   ./codecov -F unit -f test_coverage/unit-test-coverage.xml 
             cd ..
@@ -33,7 +33,7 @@ jobs:
           name: Send integ tests to codecov
           command: |
             cd UBCRocketGroundStation 
-                  curl -Os https://cli.codecov.io/latest/linux/codecov
+                  curl -Os https://cli.codecov.io/v0.4.4/linux/codecov
                   chmod +x codecov
                   ./codecov -F integration -f test_coverage/integ-test-coverage.xml 
             cd ..
