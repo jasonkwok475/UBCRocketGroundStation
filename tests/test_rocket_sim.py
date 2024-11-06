@@ -47,7 +47,7 @@ def test_simple_flight():
 
     clock.add_time(5 * S_TO_US)
     assert rocket_sim.get_data(FlightDataType.TYPE_ALTITUDE) <= 0
-    assert rocket_sim.get_flight_state() == FlightState.LANDED
+    assert rocket_sim.get_flight_state() == FlightState.LANDED #!Fails assertion occasionally
     assert rocket_sim.get_flight_events()[FlightEvent.GROUND_HIT][0] < rocket_sim.get_time_since_launch()
 
     clock.add_time(5 * S_TO_US)
