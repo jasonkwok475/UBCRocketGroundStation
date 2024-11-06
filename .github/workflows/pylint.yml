@@ -27,6 +27,6 @@ jobs:
           if [[ -f $file && $file == *.py ]]
             then
               echo $file
-              pylint $file
+              uv run pylint $file
             fi
         done
