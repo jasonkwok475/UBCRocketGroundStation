@@ -9,8 +9,7 @@ set -o verbose
 
 sudo apt-get update -y
 
-sudo apt-get install python3-tk
-sudo apt-get install python-tk
+sudo apt-get install tk-dev python3-tk
 python -m tkinter
 
 # Install missing packages for qt - libxcb-iccm4.so not found
