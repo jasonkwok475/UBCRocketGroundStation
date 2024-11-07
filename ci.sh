@@ -34,7 +34,6 @@ python build.py --only setup
 cd ..
 
 sudo apt-get install tcl tk tk-dev python3-tk 
-python -m tkinter
 
 # Clone and build FW for SIM based integration tests
 git clone https://github.com/UBC-Rocket/FLARE.git
