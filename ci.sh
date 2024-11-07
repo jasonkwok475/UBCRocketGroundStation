@@ -28,12 +28,12 @@ pyenv global 3.12
 python --version
 python -m pip install --upgrade pip setuptools wheel
 
+sudo apt-get install tcl tk tk-dev python3-tk build-dep
+
 # Initial setup of GS and venv
 echo "$MAPBOX_API_KEY" > apikey.txt
 python build.py --only setup
 cd ..
-
-sudo apt-get install tcl tk tk-dev python3-tk 
 
 # Clone and build FW for SIM based integration tests
 git clone https://github.com/UBC-Rocket/FLARE.git
