@@ -9,7 +9,7 @@ set -o verbose
 
 sudo apt-get update -y
 
-sudo apt-get install tcl tk tk-dev tk-devel python3-tk python3.12-tk
+sudo apt-get install tcl tk tk-dev python3-tk 
 python -m tkinter
 
 # Install missing packages for qt - libxcb-iccm4.so not found
