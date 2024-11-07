@@ -10,6 +10,7 @@ set -o verbose
 sudo apt-get update -y
 
 sudo apt-get install python3-tk
+python -m tkinter
 
 # Install missing packages for qt - libxcb-iccm4.so not found
 sudo apt-get install libxcb-xinerama0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxcb-shape0 libxkbcommon-x11-0
