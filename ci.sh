@@ -23,13 +23,13 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
 # Start setting up Python for GS
 sudo apt-get install -y tk-dev
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install -s 3.12
-pyenv global 3.12
+env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install -s 3.12.6
+pyenv global 3.12.6
 python --version
 python -m pip install --upgrade pip setuptools wheel
 
-sudo apt-get install tcl tk tk-dev 
-sudo apt-get build-dep python3-tk 
+# sudo apt-get install tcl tk tk-dev 
+# sudo apt-get build-dep python3-tk 
 
 # Initial setup of GS and venv
 echo "$MAPBOX_API_KEY" > apikey.txt
