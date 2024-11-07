@@ -28,7 +28,8 @@ pyenv global 3.12
 python --version
 python -m pip install --upgrade pip setuptools wheel
 
-sudo apt-get install tcl tk tk-dev python3-tk build-dep
+sudo apt-get install tcl tk tk-dev 
+sudo apt-get build-dep python3-tk 
 
 # Initial setup of GS and venv
 echo "$MAPBOX_API_KEY" > apikey.txt
