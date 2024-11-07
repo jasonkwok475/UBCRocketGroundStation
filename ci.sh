@@ -11,7 +11,6 @@ sudo apt-get update -y
 
 sudo apt-get install python3-tk
 sudo apt-get install python-tk
-python3 -m tkinter
 python -m tkinter
 
 # Install missing packages for qt - libxcb-iccm4.so not found
