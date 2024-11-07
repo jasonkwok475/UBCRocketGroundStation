@@ -18,6 +18,8 @@ DATA_FILES = [
 ]
 
 HIDDEN_IMPORTS = [
+    'tkinter',
+    'tkinter.filedialog',
     'main_window.mplwidget',
 ]
 
