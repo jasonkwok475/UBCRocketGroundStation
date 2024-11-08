@@ -10,8 +10,7 @@ set -o verbose
 sudo apt-get update -y
 
 # Install missing packages for qt - libxcb-iccm4.so not found
-sudo apt-get install libxcb-icccm4
-#sudo apt-get install libxcb-xinerama0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxcb-shape0 libxkbcommon-x11-0
+sudo apt-get install libxcb-icccm4 #libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxcb-shape0 libxkbcommon-x11-0
 
 # Needed for unit testing with qt https://github.com/pytest-dev/pytest-qt/issues/293
 sudo apt-get install -y xvfb libxkbcommon-x11-0
@@ -23,14 +22,11 @@ sudo apt-get install -y openjdk-8-jre
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
 # Start setting up Python for GS
-sudo apt-get install -y tk-dev tcl tk python3-tk
+sudo apt-get install -y tk-dev
 env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install -s 3.12
 pyenv global 3.12
 python --version
 python -m pip install --upgrade pip setuptools wheel
-
-# sudo apt-get install tcl tk tk-dev 
-# sudo apt-get build-dep python3-tk 
 
 # Initial setup of GS and venv
 echo "$MAPBOX_API_KEY" > apikey.txt

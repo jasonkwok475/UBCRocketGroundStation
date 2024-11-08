@@ -18,8 +18,6 @@ DATA_FILES = [
 ]
 
 HIDDEN_IMPORTS = [
-    'tkinter',
-    'tkinter.filedialog',
     'main_window.mplwidget',
 ]
 
@@ -89,7 +87,6 @@ def parent_dir(path):
         return path
 
 def setup_step():
-    #!HERE
     _run(GLOBAL_PYTHON, ['-m', 'pip', 'install', '--upgrade', 'uv'])
 
     print("Creating venv...")
@@ -121,7 +118,7 @@ def build_step():
     print("Running PyInstaller...")
     hidden_imports = [f"--hidden-import={i}" for i in HIDDEN_IMPORTS]
     data_files = [f"--add-data={i}{PYINSTALLER_SEPARATOR}{parent_dir(i)}" for i in DATA_FILES]
-    splash = ""#f"--splash {SPLASH_IMAGE}" if sys.platform != 'darwin' else ""  # Splash not currently supported on MacOS
+    splash = "" #f"--splash {SPLASH_IMAGE}" if sys.platform != 'darwin' else ""  # Splash not currently supported on MacOS
     _run(VENV_PYINSTALLER, ['--onefile',
                             ENTRY_POINT,
                             '--console',
@@ -190,4 +187,4 @@ if __name__ == '__main__':
     cmd_args = parser.parse_args()
 
     main(cmd_args)
- 
+
