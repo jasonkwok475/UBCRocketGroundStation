@@ -18,8 +18,6 @@ DATA_FILES = [
 ]
 
 HIDDEN_IMPORTS = [
-    'tkinter',
-    'tkinter.filedialog',
     'main_window.mplwidget',
 ]
 
@@ -31,8 +29,6 @@ ICON_FILE = 'qt_files/icon.ico'
 Environment specific paths and constants
 '''
 LOCAL = os.path.dirname(os.path.abspath(__file__))
-
-os.environ["QT_DEBUG_PLUGINS"] = "1"
 
 GLOBAL_PYTHON = sys.executable
 
@@ -53,8 +49,6 @@ VENV_PYTHON = os.path.join(VENV_BIN_DIR, {
     'win32': 'python',
     'darwin': 'python3'
 }[sys.platform] + EXECUTABLE_FILE_EXTENSION)
-
-VENV_PIP = os.path.join(VENV_BIN_DIR, 'pip' + EXECUTABLE_FILE_EXTENSION)
 
 VENV_PYINSTALLER = os.path.join(VENV_BIN_DIR, 'pyinstaller' + EXECUTABLE_FILE_EXTENSION)
 
@@ -93,7 +87,6 @@ def parent_dir(path):
         return path
 
 def setup_step():
-    #!HERE
     _run(GLOBAL_PYTHON, ['-m', 'pip', 'install', '--upgrade', 'uv'])
 
     print("Creating venv...")
@@ -179,7 +172,7 @@ def main(cmd_args):
 
 if __name__ == '__main__':
     if not (sys.version_info[0] == 3 and sys.version_info[1] == 12):
-        raise Exception("Python version is not 3.7")
+        raise Exception("Python version is not 3.12")
 
     if _is_venv():
         raise Exception("Running in a virtual environment")

@@ -9,9 +9,8 @@ set -o verbose
 
 sudo apt-get update -y
 
-sudo apt-get install libxcb-xinerama0
-#libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxcb-shape0 libxkbcommon-x11-0
-
+# Install missing packages for qt - libxcb-iccm4.so not found
+sudo apt-get install libxcb-xinerama0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-xkb1 libxcb-shape0 libxkbcommon-x11-0
 
 # Needed for unit testing with qt https://github.com/pytest-dev/pytest-qt/issues/293
 sudo apt-get install -y xvfb libxkbcommon-x11-0
@@ -53,18 +52,19 @@ cd UBCRocketGroundStation
 # Unit tests & integration tests
 source .venv/bin/activate
 mkdir test_reports
+mkdir test_coverage
 
 # Unit
 coverage run --omit '.venv/*' -m pytest --durations=0 --junitxml=test_reports/unit-test-results.xml --ignore=tests/integration_tests tests
 coverage report --omit '.venv/*'
-coverage xml -o test_reports/unit-test-coverage.xml
-head test_reports/unit-test-coverage.xml
+coverage xml -o test_coverage/unit-test-coverage.xml
+head test_coverage/unit-test-coverage.xml
 
 # Integration
-coverage run --omit '.venv/*' -m pytest --collect-only -p no:warnings --durations=0 --junitxml=test_reports/integ-test-results.xml tests/integration_tests
+coverage run --omit '.venv/*' -m pytest --durations=0 --junitxml=test_reports/integ-test-results.xml tests/integration_tests
 coverage report --omit '.venv/*'
-coverage xml -o test_reports/integ-test-coverage.xml
-head test_reports/integ-test-coverage.xml
+coverage xml -o test_coverage/integ-test-coverage.xml
+head test_coverage/integ-test-coverage.xml
 
 deactivate
 
